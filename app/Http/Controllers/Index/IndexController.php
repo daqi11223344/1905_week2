@@ -113,21 +113,23 @@ class IndexController extends Controller
 
     public function accii()
     {
-        $char = 'Hello World';
-        $length = strlen($char);
-        echo $length;echo '<br>';
+        // $char = '';
+        // echo 1223232424;die;
+        $data = $_GET['char'];
+        $length = strlen($data);
+        // echo $length;echo '<br>';
 
         $pass = "";
         for($i=0;$i<$length;$i++)
         {
-            echo $char[$i] . '>>>' . ord($char[$i]); echo '<br>';
-            $ord = ord($char[$i]) + 3;
+            // echo $char[$i] . '>>>' . ord($char[$i]); echo '<br>';
+            $ord = ord($data[$i]) + 3;
             $chr = chr($ord);
-            echo $char[$i] . '>>>' . $ord . '>>>' . $chr;echo '<hr>';
+            // echo $char[$i] . '>>>' . $ord . '>>>' . $chr;echo '<hr>';
             $pass .= $chr;
         }
 
-        echo '<br>';
+        // echo '<br>';
         echo $pass;
     }
 
@@ -135,16 +137,15 @@ class IndexController extends Controller
     // 解密
     public function dec()
     {
-        $enc = 'Khoor#Zruog';
-        echo "密文：".$enc;echo '<hr>';
-        $length = strlen($enc);
+        $data = $_GET['char'];
+        $length = strlen($data);
 
         $str = "";
         for($i=0;$i<$length;$i++)
         {
-            $ord = ord($enc[$i]) - 3;
+            $ord = ord($data[$i]) - 3;
             $chr = chr($ord);
-            echo $ord . '>>>' . $chr ;echo '<br>';
+            // echo $ord . '>>>' . $chr ;echo '<br>';
             $str .=$chr;
         }
         echo "解密： ".$str;
